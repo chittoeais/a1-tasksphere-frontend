@@ -1,5 +1,15 @@
 const API_URL = (window.__APP_CONFIG__?.API_URL || "http://localhost:8000").replace(/\/$/, "");
 
+export type TaskStatus = "To Do" | "In Progress" | "Completed";
+
+export type Task = {
+  id: string;
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  owner_email: string;
+};
+
 type LoginResponse = {
   access_token: string;
   token_type: string;
@@ -61,4 +71,14 @@ export async function logoutUser(): Promise<MessageResponse> {
   });
 
   return parseResponse<MessageResponse>(response);
+}
+
+export async function listTasks(token: string): Promise<Task[]> {
+  const response = await fetch(`${API_URL}/tasks`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return parseResponse<Task[]>(response);
 }

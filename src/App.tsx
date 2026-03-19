@@ -7,8 +7,7 @@ import TaskListPage from "./pages/TaskListPage";
 import TaskCreatePage from "./pages/TaskCreatePage";
 import TaskEditPage from "./pages/TaskEditPage";
 
-function App() {
-
+export default function App() {
   return (
     <>
       <Navbar />
@@ -42,7 +41,5 @@ function App() {
         />
       </Routes>
     </>
-  )
+  );
 }
-
-export default App

@@ -82,3 +82,13 @@ export async function listTasks(token: string): Promise<Task[]> {
 
   return parseResponse<Task[]>(response);
 }
+
+export async function createTask(token: string, title: string, description: string): Promise<Task> {
+  const response = await fetch(`${API_URL}/tasks`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify({ title, description })
+  });
+
+  return parseResponse<Task>(response);
+}

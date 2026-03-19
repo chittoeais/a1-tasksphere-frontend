@@ -4,6 +4,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import TaskListPage from "./pages/TaskListPage";
+import TaskCreatePage from "./pages/TaskCreatePage";
 
 function App() {
 
@@ -19,6 +20,14 @@ function App() {
           element={
             <ProtectedRoute>
               <TaskListPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tasks/create"
+          element={
+            <ProtectedRoute>
+              <TaskCreatePage />
             </ProtectedRoute>
           }
         />

@@ -1,4 +1,4 @@
-const API_URL = (window.__APP_CONFIG__?.API_URL || "http://localhost:8000").replace(/\/$/, "");
+const API_URL = (window.API_URL || "http://localhost:8000").replace(/\/$/, "");
 
 export type TaskStatus = "To Do" | "In Progress" | "Completed";
 
